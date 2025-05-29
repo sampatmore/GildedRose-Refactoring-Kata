@@ -1,5 +1,5 @@
 plugins {
-	kotlin("jvm") version "2.1.20"
+	kotlin("jvm") version "1.9.23"
 	application
 }
 
@@ -10,10 +10,8 @@ repositories {
 	mavenCentral()
 }
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(8)
-	}
+kotlin {
+	jvmToolchain(19)
 }
 
 dependencies {
