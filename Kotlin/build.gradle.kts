@@ -17,7 +17,6 @@ kotlin {
 dependencies {
 	implementation(kotlin("stdlib"))
 	testImplementation(kotlin("test"))
-	testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
 }
 
 tasks.test {
