@@ -5,7 +5,12 @@ class GildedRose(val items: List<Item>) {
     fun updateQuality() {
         for (i in items.indices) {
             val item = items[i]
-            updateItemQuality(item)
+            updateAgedBrie(item)
+            updateSulfuras(item)
+            if (item.name != "Aged Brie" && item.name != "Sulfuras, Hand of Ragnaros") {
+                updateItemQuality(item)
+            }
+
         }
     }
 
@@ -53,5 +58,25 @@ class GildedRose(val items: List<Item>) {
         }
     }
 
+    private fun updateAgedBrie(item: Item) {
+        if (item.name != "Aged Brie") return
+
+        if (item.quality < 50) {
+            item.quality = item.quality + 1
+        }
+        item.sellIn = item.sellIn - 1
+
+        if (item.sellIn < 0 && item.quality < 50) {
+            item.quality = item.quality + 1
+        }
+    }
+
+    private fun updateSulfuras(item: Item) {
+        if (item.name != "Sulfuras, Hand of Ragnaros") return
+
+        if (item.quality < 50) {
+            item.quality = item.quality + 1
+        }
+    }
 }
 
